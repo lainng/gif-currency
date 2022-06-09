@@ -1,4 +1,4 @@
-package com.piatnitsa.gifcurrency.feign;
+package com.piatnitsa.gifcurrency.service.feign;
 
 import com.piatnitsa.gifcurrency.dto.GifDto;
 import org.springframework.cloud.openfeign.FeignClient;
