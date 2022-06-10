@@ -2,8 +2,8 @@ package com.piatnitsa.gifcurrency.service;
 
 import com.piatnitsa.gifcurrency.dto.GifDto;
 import com.piatnitsa.gifcurrency.dto.converter.DtoConverter;
-import com.piatnitsa.gifcurrency.feign.GifClient;
 import com.piatnitsa.gifcurrency.model.Gif;
+import com.piatnitsa.gifcurrency.service.feign.GifClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

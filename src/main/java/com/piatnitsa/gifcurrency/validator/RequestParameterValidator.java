@@ -5,7 +5,7 @@ import com.piatnitsa.gifcurrency.exception.IncorrectParameterException;
 public class RequestParameterValidator {
 
     public static void validateCurrencyCode(String currencyCode) {
-        if (currencyCode.isEmpty()) {
+        if (currencyCode == null || currencyCode.isEmpty()) {
             throw new IncorrectParameterException("badCurrencyCode.emptyLine");
         }
 
