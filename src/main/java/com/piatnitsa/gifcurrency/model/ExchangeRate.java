@@ -1,30 +1,35 @@
 package com.piatnitsa.gifcurrency.model;
 
-import java.util.Date;
-import java.util.Map;
+import java.util.Objects;
 
 public class ExchangeRate {
-    private Date timestamp;
-    private Map<String, Double> rates;
+    private Double rate;
 
-    public Map<String, Double> getRates() {
-        return rates;
+    public Double getRate() {
+        return rate;
     }
 
-    public void setRates(Map<String, Double> rates) {
-        this.rates = rates;
+    public void setRate(Double rate) {
+        this.rate = rate;
     }
 
-    public Date getTimestamp() {
-        return timestamp;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ExchangeRate rate1 = (ExchangeRate) o;
+        return Objects.equals(rate, rate1.rate);
     }
 
-    public void setTimestamp(Date timestamp) {
-        addMillis(timestamp);
-        this.timestamp = timestamp;
+    @Override
+    public int hashCode() {
+        return Objects.hash(rate);
     }
 
-    private void addMillis(Date timestamp) {
-        timestamp.setTime(timestamp.getTime() * 1000);
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder("ExchangeRate{");
+        builder.append("rate=").append(rate).append('}');
+        return builder.toString();
     }
 }
