@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @version 1.0
  */
 @FeignClient(name = "exchange-rate-client", url = "https://openexchangerates.org/api")
-public interface ExchangeClient {
+public interface ExchangeRateClient {
 
     /**
      * Fetches the latest exchange rate of the specified currency code.
