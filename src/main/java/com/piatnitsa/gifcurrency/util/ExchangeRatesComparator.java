@@ -5,6 +5,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Comparator;
 
+/**
+ * This class represents an implementation of {@link Comparator} interface.
+ */
 @Component
 public class ExchangeRatesComparator implements Comparator<ExchangeRate> {
 

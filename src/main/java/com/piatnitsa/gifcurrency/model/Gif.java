@@ -2,6 +2,11 @@ package com.piatnitsa.gifcurrency.model;
 
 import java.util.Objects;
 
+/**
+ * This class represents the entity of the GIF image.
+ * @author Vlad Piatnitsa
+ * @version 1.0
+ */
 public class Gif {
     private String url;
     private String tag;

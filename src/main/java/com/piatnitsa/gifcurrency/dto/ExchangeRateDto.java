@@ -1,7 +1,16 @@
 package com.piatnitsa.gifcurrency.dto;
 
+import com.piatnitsa.gifcurrency.model.ExchangeRate;
+import com.piatnitsa.gifcurrency.service.feign.ExchangeClient;
+
 import java.util.Map;
 
+/**
+ * This class represents the DTO of the {@link ExchangeRate} that contains response information
+ * from {@link ExchangeClient}.
+ * @author Vlad Piatnitsa
+ * @version 1.0
+ */
 public class ExchangeRateDto {
     private Map<String, Double> rates;
 

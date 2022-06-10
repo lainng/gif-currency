@@ -2,6 +2,11 @@ package com.piatnitsa.gifcurrency.model;
 
 import java.util.Objects;
 
+/**
+ * This class represents the entity of the exchange rates.
+ * @author Vlad Piatnitsa
+ * @version 1.0
+ */
 public class ExchangeRate {
     private Double rate;
 

@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.Locale;
 
+/**
+ * This class presents entity which will be returned from controller in case generating exceptions.
+ * @author Vlad Piatnitsa
+ * @version 1.0
+ */
 @RestControllerAdvice
 public class ExceptionsHandler {
     private final MessageSource messageSource;

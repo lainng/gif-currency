@@ -1,5 +1,11 @@
 package com.piatnitsa.gifcurrency.exception;
 
+/**
+ * This class represents the exception that is thrown when the validation of entity parameters fails.
+ *
+ * @author Vlad Piatnitsa
+ * @version 1.0
+ */
 public class IncorrectParameterException extends RuntimeException {
 
     public IncorrectParameterException() {

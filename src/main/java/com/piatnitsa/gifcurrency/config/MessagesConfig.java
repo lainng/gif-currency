@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
 /**
+ * This class is designed to work with a properties source.
  * @author Vlad Piatnitsa
  * @version 1.0
  */

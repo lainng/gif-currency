@@ -7,6 +7,11 @@ import com.piatnitsa.gifcurrency.service.feign.GifClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+/**
+ * This class represent the tools for working with {@link Gif} entity.
+ * @author Vlad Piatnitsa
+ * @version 1.0
+ */
 @Service
 public class GifService {
 
@@ -21,6 +26,11 @@ public class GifService {
         this.gifClient = gifClient;
     }
 
+    /**
+     * Fetches the {@link Gif} entity by specified tag name.
+     * @param tag the GIF image tag name.
+     * @return the {@link Gif} entity.
+     */
     public Gif getGifByTag(String tag) {
         GifDto dto = gifClient.getRandomGif(appId, tag);
         Gif gif = gifDtoConverter.toEntity(dto);
