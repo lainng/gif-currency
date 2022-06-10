@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Vlad Piatnitsa
  * @version 1.0
  */
-@FeignClient(name = "gif-client", url = "https://api.giphy.com/v1/gifs")
+@FeignClient(name = "gif-client", url = "${gif.serviceUrl}")
 public interface GifClient {
 
     /**

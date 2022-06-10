@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Vlad Piatnitsa
  * @version 1.0
  */
-@FeignClient(name = "exchange-rate-client", url = "https://openexchangerates.org/api")
+@FeignClient(name = "exchange-rate-client", url = "${exchangeRate.serviceUrl}")
 public interface ExchangeRateClient {
 
     /**
@@ -20,9 +20,9 @@ public interface ExchangeRateClient {
      * @param currencyCode currency code of the exchange rate.
      * @return the latest exchange rate.
      */
-    @GetMapping("/latest.json")
+    @GetMapping("/latest.json?base=${exchangeRate.baseCodeCurrency}")
     ExchangeRateDto getLatestExchangeRate(@RequestParam("app_id") String appId,
-                                           @RequestParam("symbols") String currencyCode);
+                                          @RequestParam("symbols") String currencyCode);
 
     /**
      * Fetches the exchange rate of the specified currency code on the specified date.
@@ -31,7 +31,7 @@ public interface ExchangeRateClient {
      * @param currencyCode currency code of the exchange rate.
      * @return the exchange rate.
      */
-    @GetMapping("/historical/{date}.json")
+    @GetMapping("/historical/{date}.json?base=${exchangeRate.baseCodeCurrency}")
     ExchangeRateDto getExchangeRateByDate(@PathVariable String date,
                                        @RequestParam("app_id") String appId,
                                        @RequestParam("symbols") String currencyCode);
