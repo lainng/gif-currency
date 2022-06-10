@@ -2,8 +2,9 @@ package com.piatnitsa.gifcurrency.service;
 
 import com.piatnitsa.gifcurrency.dto.ExchangeRateDto;
 import com.piatnitsa.gifcurrency.dto.converter.DtoConverter;
-import com.piatnitsa.gifcurrency.feign.ExchangeClient;
 import com.piatnitsa.gifcurrency.model.ExchangeRate;
+import com.piatnitsa.gifcurrency.service.feign.ExchangeClient;
+import com.piatnitsa.gifcurrency.validator.ExchangeRateDtoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -28,11 +29,13 @@ public class ExchangeRateService {
 
     public ExchangeRate getLatestExchangeRate(String currencyCode) {
         ExchangeRateDto dto = exchangeClient.getLatestExchangeRate(appId, currencyCode);
+        ExchangeRateDtoValidator.validate(dto);
         return exchangeRateDtoConverter.toEntity(dto);
     }
 
     public ExchangeRate getExchangeRateByDate(String date, String currencyCode) {
         ExchangeRateDto rateByDateDto = exchangeClient.getExchangeRateByDate(date, appId, currencyCode);
+        ExchangeRateDtoValidator.validate(rateByDateDto);
         return exchangeRateDtoConverter.toEntity(rateByDateDto);
     }
 
