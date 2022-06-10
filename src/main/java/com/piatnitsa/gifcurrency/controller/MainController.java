@@ -1,10 +1,8 @@
 package com.piatnitsa.gifcurrency.controller;
 
-import com.piatnitsa.gifcurrency.model.ExchangeRate;
 import com.piatnitsa.gifcurrency.model.Gif;
 import com.piatnitsa.gifcurrency.service.GifCurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,16 +16,8 @@ public class MainController {
         this.service = service;
     }
 
-    @GetMapping("/exchange-rate")
-    public ExchangeRate exchangeRate(
-            @RequestParam(value = "currency-code", required = false, defaultValue = "BYN") String currencyCode,
-            @Value("${exchangeRate.appId}") String appId) {
-        return service.getExchangeRates(appId, currencyCode);
-    }
-
-    @GetMapping("/gif")
-    public Gif gif(@Value("${gif.appId}") String appId,
-                   @RequestParam("tag") String tag) {
-        return service.getGif(appId, tag);
+    @GetMapping("/exchange-rate-gif")
+    public Gif gifByExchangeRate(@RequestParam(value = "currency-code", required = false) String currencyCode) {
+        return service.gifByRate(currencyCode);
     }
 }
