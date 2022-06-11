@@ -32,6 +32,6 @@
 
 `docker build gif_currency:gc`
 
-####Запуск
+#### Запуск
 
 `docker run -p 8080:8080 gif_currency:gc`
