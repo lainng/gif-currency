@@ -21,3 +21,17 @@
 #### Nice to Have  
 
 - Сборка и запуск Docker контейнера с этим сервисом
+
+### Запуск .jar
+
+`java -jar /build/libs/gif-currency-1.0.jar`
+
+### Docker
+
+Для создания образа Docker необходимо перейти в корневую директорию проекта, где лежит файл Dockerfile:
+
+`docker build gif_currency:gc`
+
+####Запуск
+
+`docker run -p 8080:8080 gif_currency:gc`
