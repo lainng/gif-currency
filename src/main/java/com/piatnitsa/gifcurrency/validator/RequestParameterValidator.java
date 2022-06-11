@@ -8,7 +8,8 @@ import com.piatnitsa.gifcurrency.exception.IncorrectParameterException;
 public class RequestParameterValidator {
 
     /**
-     * Validates HTTP request parameters. Throws the {@link IncorrectParameterException} when parameters are invalid.
+     * Validates HTTP request parameter <code>currency-code</code>.
+     * Throws the {@link IncorrectParameterException} when parameters are invalid.
      * @param currencyCode request parameter <code>currency-code</code>.
      */
     public static void validateCurrencyCode(String currencyCode) {
@@ -18,6 +19,21 @@ public class RequestParameterValidator {
 
         if (currencyCode.length() > 3) {
             throw new IncorrectParameterException("badCurrencyCode.exceedingLengthLimit");
+        }
+    }
+
+    /**
+     * Validates HTTP request parameter <code>date</code>.
+     * Throws the {@link IncorrectParameterException} when parameters are invalid.
+     * @param date request parameter <code>date</code>.
+     */
+    public static void validateSearchDate(String date) {
+        if (date == null || date.isEmpty()) {
+            throw new IncorrectParameterException("badCurrencyCode.emptyDate");
+        }
+
+        if (!date.matches("\\d{4}-\\d{2}-\\d{2}")) {
+            throw new IncorrectParameterException("badCurrencyCode.malformedDate");
         }
     }
 }

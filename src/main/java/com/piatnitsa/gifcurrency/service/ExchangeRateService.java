@@ -5,6 +5,7 @@ import com.piatnitsa.gifcurrency.dto.converter.DtoConverter;
 import com.piatnitsa.gifcurrency.model.ExchangeRate;
 import com.piatnitsa.gifcurrency.service.feign.ExchangeRateClient;
 import com.piatnitsa.gifcurrency.validator.ExchangeRateDtoValidator;
+import com.piatnitsa.gifcurrency.validator.RequestParameterValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -45,11 +46,12 @@ public class ExchangeRateService {
 
     /**
      * Fetches the exchange rate by the specified currency code on the specified date.
-     * @param date the date.
+     * @param date the date in "yyyy-MM-dd" format.
      * @param currencyCode the currency code.
      * @return the {@link ExchangeRate} entity that contains the exchange rate on the specified date.
      */
     public ExchangeRate getExchangeRateByDate(String date, String currencyCode) {
+        RequestParameterValidator.validateSearchDate(date);
         ExchangeRateDto rateByDateDto = exchangeRateClient.getExchangeRateByDate(date, appId, currencyCode);
         ExchangeRateDtoValidator.validate(rateByDateDto);
         return exchangeRateDtoConverter.toEntity(rateByDateDto);
