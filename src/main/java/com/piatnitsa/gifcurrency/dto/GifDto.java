@@ -23,4 +23,10 @@ public class GifDto {
     public void setGifData(Map<String, Object> gifData) {
         this.gifData = gifData;
     }
+
+    public GifDto() {}
+
+    public GifDto(Map<String, Object> gifData) {
+        this.gifData = gifData;
+    }
 }

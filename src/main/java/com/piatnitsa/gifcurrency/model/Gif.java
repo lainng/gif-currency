@@ -27,6 +27,14 @@ public class Gif {
         this.tag = tag;
     }
 
+    public Gif() {
+    }
+
+    public Gif(String url, String tag) {
+        this.url = url;
+        this.tag = tag;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -21,4 +21,11 @@ public class ExchangeRateDto {
     public void setRates(Map<String, Double> rates) {
         this.rates = rates;
     }
+
+    public ExchangeRateDto() {
+    }
+
+    public ExchangeRateDto(Map<String, Double> rates) {
+        this.rates = rates;
+    }
 }

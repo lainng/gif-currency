@@ -18,6 +18,13 @@ public class ExchangeRate {
         this.rate = rate;
     }
 
+    public ExchangeRate() {
+    }
+
+    public ExchangeRate(Double rate) {
+        this.rate = rate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
